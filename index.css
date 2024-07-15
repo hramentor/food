@@ -1,0 +1,47 @@
+
+.res-logo{
+    height: 150px;
+    width: 100%;
+
+}
+
+.res-card{
+    height: 400px;
+    width: 200px;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+.body {
+    display: flex;
+    flex-wrap: wrap;
+}
+.person{
+    height: 100px;
+    width: 600px;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 15px;
+}
+
+.nav{
+    display: flex;
+
+list-style-type: none;
+
+}
+
+.nav >li{
+    padding: 10px;
+
+
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+.logo {
+    height: 100px;
+}

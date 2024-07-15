@@ -1,0 +1,40 @@
+
+
+Hooks --> normal javacript utilty function 
+
+16.8 --> Hooks . functional component 
+
+
+useState 
+useEffect 
+
+(70 to 80)
+
+useReducer 
+useContext 
+useRef 
+useMemo 
+useCallback
+
+
+
+
+const [value, setValue]=  useState(any data type )
+value=10 
+
+setValue --> heloer function used to update the value 
+
+const [count,setCount] = useState()
+
+
+
+when ever there is change in the state --> react will rerender 
+
+useEffect(call back function) --> sideffects --> api calls, timers, dom operations, event 
+
+
+useEffect(()=>{
+
+},[])
+
+useEffect will call after intial render 
