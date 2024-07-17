@@ -2,6 +2,7 @@
 
 
 import React, { useEffect, useState } from 'react'
+import useOnlineStatus from '../utils/useOnlineStatus'
 import RestaurantCard from './RestaurantCard'
 import { Link } from 'react-router-dom'
 
@@ -11,6 +12,8 @@ const Body = () => {
 
   const [resList,setResList]= useState([])
 
+  
+  const isOnline= useOnlineStatus()
 
 
   useEffect(()=>{
@@ -25,6 +28,10 @@ const Body = () => {
    
 fetchData()
   },[])
+
+  if (isOnline===false) {
+    return <h1>seems like your are offline please check your internet connection</h1>
+  }
 
   
   return (
