@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 
@@ -6,11 +6,15 @@ import Body from "./components/Body";
 
 import "../index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Login from "./components/Login";
-import Cart from "./components/Cart";
+
 import RestaurantMenu from "./components/RestaurantMenu";
+
+
+
+const About= lazy(()=>import("./components/About"))
+const Cart=lazy(()=>import("./components/Cart"))
+const Login=lazy(()=>import("./components/Login"))
+const Contact=lazy(()=>import("./components/Contact"))
 
 const App = () => {
   return (
@@ -32,19 +36,19 @@ const appRouter = createBrowserRouter([
               },
               {
                 path: "/about",
-                element: <About />,
+                element:<Suspense><About /></Suspense> ,
               },
               {
                 path: "/contact",
-                element: <Contact />,
+                element:<Suspense><Contact /></Suspense> ,
               },
               {
                 path: "/login",
-                element: <Login />,
+                element:<Suspense><Login/></Suspense>,
               },
               {
                 path: "/cart",
-                element: <Cart />,
+                element:<Suspense><Cart/></Suspense>,
               },
               {
                 path:"/restaurant/:id",

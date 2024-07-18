@@ -42,3 +42,9 @@ useEffect will call after intial render
 Custom hook 
 
 Single responsibilty --> component --> only thing 
+
+Lazy loading --> React performance 
+
+Chuncking 
+Dynamic loading 
+code spliting 

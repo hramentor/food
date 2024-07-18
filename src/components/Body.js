@@ -35,7 +35,7 @@ fetchData()
 
   
   return (
-    <div className=' body'>
+    <div className=' flex flex-wrap'>
        
       
       {
