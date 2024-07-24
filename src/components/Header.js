@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
+import Context from "../utils/Context"
 
 
 const Header=()=>{
@@ -8,7 +9,9 @@ const Header=()=>{
    
     //used to handle side effects 
 
-   const isOnline= useOnlineStatus()
+   const isOnline= useOnlineStatus() 
+
+   const {name}=useContext(Context)
 
     return (
         <div className=" flex justify-between bg-orange-200 shadow-xl">
@@ -20,7 +23,7 @@ const Header=()=>{
                <Link className=" px-2" to="/about"><li>About</li></Link>
                <Link className=" px-2" to="/contact">Contact</Link>
                <Link className=" px-2" to="cart"><li>Cart</li></Link>
-              
+              <li>{name}</li>
                <a className=" px-2" href="/login">   <li>Login</li>
                </a>
                 

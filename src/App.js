@@ -8,6 +8,7 @@ import "../index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import RestaurantMenu from "./components/RestaurantMenu";
+import Context from "./utils/Context";
 
 
 
@@ -19,8 +20,10 @@ const Contact=lazy(()=>import("./components/Contact"))
 const App = () => {
   return (
     <div>
+      <Context.Provider value={{name:"ABC"}}>
       <Header />
       <Outlet />
+      </Context.Provider>
      
     </div>
   );
