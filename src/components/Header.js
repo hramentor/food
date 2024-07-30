@@ -2,9 +2,14 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import Context from "../utils/Context"
+import { useSelector } from "react-redux"
 
 
 const Header=()=>{
+
+
+   const cartItems= useSelector(store=>store.cart.items)
+   console.log(cartItems)
 
    
     //used to handle side effects 
@@ -22,9 +27,11 @@ const Header=()=>{
                 <Link className=" px-2" to="/"> <li>Home</li></Link>
                <Link className=" px-2" to="/about"><li>About</li></Link>
                <Link className=" px-2" to="/contact">Contact</Link>
-               <Link className=" px-2" to="cart"><li>Cart</li></Link>
+               <Link className=" font-bold text-3xl px-2" to="/cart"><li>Cart Items -{cartItems.length}</li></Link>
               <li>{name}</li>
+        
                <a className=" px-2" href="/login">   <li>Login</li>
+
                </a>
                 
               

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 
@@ -9,6 +9,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import RestaurantMenu from "./components/RestaurantMenu";
 import Context from "./utils/Context";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 
 
@@ -18,14 +20,27 @@ const Login=lazy(()=>import("./components/Login"))
 const Contact=lazy(()=>import("./components/Contact"))
 
 const App = () => {
+
+const [out,setOut] =useState()
+
+useEffect(()=>{
+  const data={
+    name:"welcome to react"
+  }
+  setOut(data.name)
+},[])
+
   return (
+    <Provider store={appStore}>
     <div>
-      <Context.Provider value={{name:"ABC"}}>
-      <Header />
+      <Context.Provider value={{name:out,setOut}}>
+        <Context.Provider value={{name:"Hi phani"}} > <Header /></Context.Provider>
+     
       <Outlet />
       </Context.Provider>
      
     </div>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([

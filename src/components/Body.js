@@ -1,10 +1,11 @@
 
 
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import useOnlineStatus from '../utils/useOnlineStatus'
 import RestaurantCard from './RestaurantCard'
 import { Link } from 'react-router-dom'
+import Context from '../utils/Context'
 
 const Body = () => {
 
@@ -14,6 +15,8 @@ const Body = () => {
 
   
   const isOnline= useOnlineStatus()
+
+  const {setOut} = useContext(Context)
 
 
   useEffect(()=>{
@@ -35,14 +38,22 @@ fetchData()
 
   
   return (
+
+    <div>
+
+<label>Username</label>
+      <input className='m-4 p-2 border-black border-2 ' type='text' onChange={(e)=>{
+        setOut(e.target.value)
+      }} />
     <div className=' flex flex-wrap'>
        
+      
       
       {
         resList.map(each=> <Link to={"/restaurant/"+each.info.id}><RestaurantCard  out={each}/></Link> )
       }
     
-      
+    </div>
 
     </div>
   )
